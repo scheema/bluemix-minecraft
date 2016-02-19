@@ -10,8 +10,8 @@ rm -rf Reference
 rm -rf Code
 rm -rf Documents
 rm -rf Desktop
-rm ~/refLibs
-
+rm -rf refLibs
+rm -rf Downloads
 
 mv ~/bluemix-minecraft/reflibs ~/reflibs
 
