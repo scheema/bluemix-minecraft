@@ -1,0 +1,62 @@
+Commands needed for the Lab.
+
+Goal: Fill the dialog.properties needed fields
+
+userid=
+userpass=
+dialog_endpoint=https://gateway.watsonplatform.net/dialog/api
+dialog_id=
+
+STEPS to RETRIEVE and FILL the ABOVE INFORMATION
+--------------------
+
+1) Open Browser (firefox) -> go to https://console.ng.bluemix.net/ 
+
+2) Open Bluemix Dashboard. Click on the application you created with dialog service attached
+
+3) Click on the dialog icon credentials and copy and paste the username, password into the userid, userpass above
+
+4) In the Virtual Machine, open Terminal and type -> cd ~/bluemix-minecraft 
+
+
+5) Execute the following command to get the dialog id << please fill your own username, password, unique dialog name you >>
+
+The dialog name is something you will create here. This will be a unique name.
+
+curl -u "USERNAME":"PASSWORD" -X POST --form file=@input/DialogTest.xml --form name=your_dialog_name "https://gateway.watsonplatform.net/dialog/api/v1/dialogs"
+
+Example on how the command will look when complete:
+curl -u "bac8xxxxx51-45xx-axx9-03xxxxxx25":"3xxxxxxN4" -X POST --form file=@input/DialogTest.xml --form name=dialog02164334 "https://gateway.watsonplatform.net/dialog/api/v1/dialogs"
+
+RESULT of the Execution of command WILL LOOK LIKE BELOW:
+
+minecraft@ubuntu:~/bluemix-minecraft$ curl -u "bac8869b-6251-4585-ae29-03d3d6f6c925":"3TXiWWGlDhN4" -X POST --form file=@input/DialogTest.xml --form name=dialog02164334 "https://gateway.watsonplatform.net/dialog/api/v1/dialogs"
+{"dialog_id": "98044441-296e-4158-8efd-a623ffdd14d0"}
+minecraft@ubuntu:~/bluemix-minecraft$ 
+
+----------------
+With this step you have all the information to fill in the first section. copy the dialog id number string and paste into dialog_id= --- top of page.
+
+The final output will look something like below (username, password, dialog id into the following used in Dialog Properties file"
+dialog.properties example:
+
+userid=baxxxx9b-6251-4kk5-ae29-03yyyyyy25
+userpass=3TxxxxxN4
+dialog_endpoint=https://gateway.watsonplatform.net/dialog/api
+dialog_id=b6f8f1b1-aae8-4aca-bd74-4848810bd1a5
+
+THE INFORMATION from the top of the page that we filled in, can now be copied into the dialog.properties FILE in Eclipse
+
+----------------------------------------------------------------------------
+OTHER COMMANDS for reference.
+
+1) To get all the existing dialogs 
+curl -u "baxxxx9b-6251-4585-ae29-0yyuiic925":"3ppGGDDhFF4" "https://gateway.watsonplatform.net/dialog/api/v1/dialogs"
+
+
+2) To delete all the dialogs
+
+curl -u "xxxxxx-aaaa-yyyy-bbbb-03d3ddddd25":"3pkkggrr4" -X DELETE "https://gateway.watsonplatform.net/dialog/api/v1/dialogs"
+
+
+
