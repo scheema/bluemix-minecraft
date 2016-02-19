@@ -13,7 +13,7 @@ rm -rf Desktop
 rm -rf refLibs
 rm -rf Downloads
 
-mv ~/bluemix-minecraft/reflibs ~/reflibs
+mv ~/bluemix-minecraft/reflibs ~/
 
 mkdir ~/.minecraft/saves
 mkdir ~/.minecraft/resourcepacks
