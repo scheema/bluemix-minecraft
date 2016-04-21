@@ -1,0 +1,7 @@
+name: HelloWorld
+main: com.ibm.minecraftplugin.Tutorial
+version: 1.0
+
+commands: 
+  hello:
+    description: A new command

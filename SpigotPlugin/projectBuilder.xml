@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="SpigotPlugin.makejar" default="makejar" basedir=".">
+	<macrodef name = "git">
+	    <attribute name = "command" />
+	    <attribute name = "dir" default = "" />
+	    <element name = "args" optional = "true" />
+	    <sequential>
+	        <echo message = "git @{command}" />
+	        <exec executable = "git" dir = "@{dir}">
+	            <arg value = "@{command}" />
+	            <args/>
+	        </exec>
+	    </sequential>
+	</macrodef>
+  <target name ="makejar" description="Create a jar for the SpigotPlugin project">
+    <jar jarfile="Tutorial.jar" includes="com/ibm/minecraftplugin/*.class, *.yml" basedir="bin"/>
+    <copy file="/Users/kylebrown/Documents/minecraft-workspace/SpigotPlugin/Tutorial.jar" todir="/Users/kylebrown/Dev/spigot"/>
+	 <git command = "add" dir="/Users/kylebrown/Dev/spigot">
+	    <args>
+	        <arg value = "*" />
+	    </args>
+	  </git>
+	  <git command = "commit" dir="/Users/kylebrown/Dev/spigot">
+		    <args>
+		    	<arg value = "-m" />
+		        <arg value = "'updated Tutorial.jar for demo'" />
+		    </args>
+	  </git>
+    <git command = "push" dir="/Users/kylebrown/Dev/spigot">
+      <args>
+          <arg value = "origin" />
+          <arg value = "master" />
+      </args>
+    </git>
+    </target>
+</project>
